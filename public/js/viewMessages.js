@@ -14,11 +14,12 @@ const getMessages = () => {
         
         const data = snapshot.val()
         for(let key in data)
-        {
-            if(key === passcode.value)
+        {          
+            if(data[key].passcode === passcode.value)
             {
-                message.innerHTML = data[key]
+                message.innerHTML = data[key]["message"]
                 failedAttempts = 0
+                return;
             }
             else
             {
